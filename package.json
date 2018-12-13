@@ -1,0 +1,70 @@
+{
+  "name": "aws-site-deploy",
+  "description": "Deploy static site to AWS",
+  "version": "0.0.0",
+  "author": "Sam Lau @esayemm",
+  "bin": {
+    "aws-site-deploy": "./bin/run"
+  },
+  "bugs": "https://github.com/esayemm/aws-site-deploy/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "@types/aws-sdk": "2.7.0",
+    "aws-sdk": "2.374.0",
+    "cli-ux": "4.9.3",
+    "mime-types": "2.1.21",
+    "ramda": "0.26.1",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@oclif/test": "^1",
+    "@oclif/tslint": "^3",
+    "@types/chai": "^4",
+    "@types/mime-types": "2.1.0",
+    "@types/mocha": "^5",
+    "@types/node": "^10",
+    "@types/ramda": "0.25.44",
+    "chai": "^4",
+    "globby": "^8",
+    "mocha": "^5",
+    "nyc": "^13",
+    "prettier": "1.15.3",
+    "ts-node": "^7",
+    "tslint": "^5",
+    "typescript": "^3.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/esayemm/aws-site-deploy",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "aws-site-deploy",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "esayemm/aws-site-deploy",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "tslint -p test -t stylish",
+    "prepack": "NODE_PATH=src rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
