@@ -29,62 +29,28 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`aws-site-deploy deploy [FILE]`](#aws-site-deploy-deploy-file)
-* [`aws-site-deploy goodbye [FILE]`](#aws-site-deploy-goodbye-file)
-* [`aws-site-deploy hello [FILE]`](#aws-site-deploy-hello-file)
+* [`aws-site-deploy deploy`](#aws-site-deploy-deploy)
 * [`aws-site-deploy help [COMMAND]`](#aws-site-deploy-help-command)
 
-## `aws-site-deploy deploy [FILE]`
+## `aws-site-deploy deploy`
 
-describe the command here
+deploy a static site to aws
 
 ```
 USAGE
-  $ aws-site-deploy deploy [FILE]
+  $ aws-site-deploy deploy
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help                               show CLI help
+  -s, --source=source                      (required) source folder for static site
+  --awsAccessKeyId=awsAccessKeyId          aws access key id
+  --awsEndpoint=awsEndpoint                aws endpoint
+  --awsRegion=awsRegion                    aws region
+  --awsSecretAccessKey=awsSecretAccessKey  aws secret access key
+  --fqdn=fqdn                              (required) fqdn (fully qualified domain name) of the desire deploy
 ```
 
 _See code: [src/commands/deploy.ts](https://github.com/esayemm/aws-site-deploy/blob/v0.0.0/src/commands/deploy.ts)_
-
-## `aws-site-deploy goodbye [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ aws-site-deploy goodbye [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-```
-
-_See code: [src/commands/goodbye.ts](https://github.com/esayemm/aws-site-deploy/blob/v0.0.0/src/commands/goodbye.ts)_
-
-## `aws-site-deploy hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ aws-site-deploy hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ aws-site-deploy hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/esayemm/aws-site-deploy/blob/v0.0.0/src/commands/hello.ts)_
 
 ## `aws-site-deploy help [COMMAND]`
 

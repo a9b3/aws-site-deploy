@@ -9,7 +9,9 @@ const getS3 = memoizeWith(
   },
 )
 
-function nextPagePromise(response: AWS.Response<D, E>): Promise<D> {
+function nextPagePromise(
+  response: AWS.Response<AWS.S3.ListBucketsOutput, AWS.AWSError>,
+): any {
   return new Promise((resolve, reject) => {
     response.nextPage((e, d) => {
       return e ? reject(e) : resolve(d)
@@ -23,7 +25,7 @@ function nextPagePromise(response: AWS.Response<D, E>): Promise<D> {
 async function listBuckets() {
   const s3 = getS3()
 
-  let buckets = []
+  let buckets: AWS.S3.Buckets = []
   let cursor = await s3.listBuckets().promise()
   if (cursor.Buckets) {
     buckets = buckets.concat(cursor.Buckets)

@@ -174,7 +174,7 @@ export default async function deploy({
   // certificates only allow * to match one subdomain, that means if the FQDN is
   // foo.bar.example.com a certificate signed for *.example.com does not handle
   // it.
-  const {domain, hostname, rootDomain} = parseFqdn(fqdn)
+  const {domain, rootDomain} = parseFqdn(fqdn)
   if (!rootDomain) {
     throw new Error(`Could not parse rootDomain from given fqdn "${fqdn}"`)
   }

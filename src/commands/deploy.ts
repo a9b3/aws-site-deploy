@@ -1,6 +1,6 @@
 import {Command, flags} from '@oclif/command'
 
-import deploy from 'services/deploy'
+import deploy from '../services/deploy'
 
 export default class Deploy extends Command {
   static description = 'deploy a static site to aws'
@@ -11,6 +11,7 @@ export default class Deploy extends Command {
       char: 's',
       description: 'source folder for static site',
       env: 'SOURCE',
+      required: true,
     }),
     fqdn: flags.string({
       description: 'fqdn (fully qualified domain name) of the desire deploy',

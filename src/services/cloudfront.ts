@@ -168,5 +168,8 @@ export async function lazyCreateDistributionForFQDN({
         arn,
       })
 
-  return cloudFront.getDistribution({Id: distribution.Id}).promise()
+  const {Distribution} = await cloudFront
+    .getDistribution({Id: distribution.Id})
+    .promise()
+  return Distribution
 }
