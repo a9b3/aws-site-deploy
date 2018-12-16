@@ -66,6 +66,7 @@ export async function lazyCreateCertificate({domain}: { domain: string }) {
       .requestCertificate({
         DomainName: `*.${domain}`,
         ValidationMethod: 'DNS',
+        SubjectAlternativeNames: [`*.${domain}`, `${domain}`],
       })
       .promise())
 
