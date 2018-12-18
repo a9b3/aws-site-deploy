@@ -59,7 +59,7 @@ export async function invalidate({fqdn}: { fqdn: string }) {
       InvalidationBatch: {
         CallerReference: `${fqdn}-${Date.now()}`,
         Paths: {
-          Quantity: 0,
+          Quantity: 1,
           Items: ['/*'],
         },
       },
