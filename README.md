@@ -20,7 +20,7 @@ $ npm install -g aws-site-deploy
 $ aws-site-deploy COMMAND
 running command...
 $ aws-site-deploy (-v|--version|version)
-aws-site-deploy/0.0.2 darwin-x64 node-v10.10.0
+aws-site-deploy/0.0.3 darwin-x64 node-v10.10.0
 $ aws-site-deploy --help [COMMAND]
 USAGE
   $ aws-site-deploy COMMAND
@@ -50,7 +50,7 @@ OPTIONS
   --fqdn=fqdn                              (required) fqdn (fully qualified domain name) of the desire deploy
 ```
 
-_See code: [src/commands/deploy.ts](https://github.com/esayemm/aws-site-deploy/blob/v0.0.2/src/commands/deploy.ts)_
+_See code: [src/commands/deploy.ts](https://github.com/esayemm/aws-site-deploy/blob/v0.0.3/src/commands/deploy.ts)_
 
 ## `aws-site-deploy help [COMMAND]`
 
