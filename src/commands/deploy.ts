@@ -1,4 +1,5 @@
 import {Command, flags} from '@oclif/command'
+import cli from 'cli-ux'
 
 import deploy from '../services/deploy'
 
@@ -36,7 +37,10 @@ export default class Deploy extends Command {
     const {flags} = this.parse(Deploy)
 
     try {
+      cli.action.start('uploading files to s3')
       await deploy(flags)
+      cli.action.stop()
+      this.log(`Visit your site at https://${flags.fqdn}`)
     } catch (err) {
       this.error(err.message)
       this.exit(1)
