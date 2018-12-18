@@ -1,6 +1,7 @@
 import {Command, flags} from '@oclif/command'
 import cli from 'cli-ux'
 
+import {invalidate} from '../services/cloudfront'
 import deploy from '../services/deploy'
 
 export default class Deploy extends Command {
@@ -39,6 +40,10 @@ export default class Deploy extends Command {
     try {
       cli.action.start('uploading files to s3')
       await deploy(flags)
+      cli.action.stop()
+
+      cli.action.start('invalidating cloudfront')
+      await invalidate({fqdn: flags.fqdn})
       cli.action.stop()
       this.log(`Visit your site at https://${flags.fqdn}`)
     } catch (err) {
