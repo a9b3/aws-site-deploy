@@ -1,7 +1,9 @@
 aws-site-deploy
 ===============
 
-Deploy static site to AWS
+Deploy static site to AWS S3 and also creates a cloudfront invalidation. This
+CLI is meant to be used with sites that are deployed with Route53 -> CloudFront
+-> S3. It does not handle provisioning AWS resources for you.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/aws-site-deploy.svg)](https://npmjs.org/package/aws-site-deploy)

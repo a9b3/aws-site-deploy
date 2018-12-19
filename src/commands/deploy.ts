@@ -5,12 +5,12 @@ import {invalidate} from '../services/cloudfront'
 import deploy from '../services/deploy'
 
 export default class Deploy extends Command {
-  static description = 'deploy a static site to aws'
+  static description =
+    'Upload a static site to AWS S3 and also create a cloudfront invalidation.'
 
   static flags = {
     help: flags.help({char: 'h'}),
     source: flags.string({
-      char: 's',
       description: 'source folder for static site',
       env: 'SOURCE',
       required: true,
@@ -45,6 +45,7 @@ export default class Deploy extends Command {
       cli.action.start('invalidating cloudfront')
       await invalidate({fqdn: flags.fqdn})
       cli.action.stop()
+
       this.log(`Visit your site at https://${flags.fqdn}`)
     } catch (err) {
       this.error(err.message)
