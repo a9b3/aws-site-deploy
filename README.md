@@ -14,6 +14,7 @@ CLI is meant to be used with sites that are deployed with Route53 -> CloudFront
 <!-- toc -->
 * [Usage](#usage)
 * [Commands](#commands)
+* [Releasing](#releasing)
 <!-- tocstop -->
 # Usage
 <!-- usage -->
@@ -36,7 +37,7 @@ USAGE
 
 ## `aws-site-deploy deploy`
 
-deploy a static site to aws
+Upload a static site to AWS S3 and also create a cloudfront invalidation.
 
 ```
 USAGE
@@ -44,12 +45,12 @@ USAGE
 
 OPTIONS
   -h, --help                               show CLI help
-  -s, --source=source                      (required) source folder for static site
   --awsAccessKeyId=awsAccessKeyId          aws access key id
   --awsEndpoint=awsEndpoint                aws endpoint
   --awsRegion=awsRegion                    aws region
   --awsSecretAccessKey=awsSecretAccessKey  aws secret access key
   --fqdn=fqdn                              (required) fqdn (fully qualified domain name) of the desire deploy
+  --source=source                          (required) source folder for static site
 ```
 
 _See code: [src/commands/deploy.ts](https://github.com/esayemm/aws-site-deploy/blob/v0.0.4/src/commands/deploy.ts)_
@@ -71,3 +72,7 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.4/src/commands/help.ts)_
 <!-- commandsstop -->
+
+# Releasing
+
+Just run `npm version patch|minor|major` to cut a release to npm.

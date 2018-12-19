@@ -64,7 +64,9 @@
     "posttest": "tslint -p test -t stylish",
     "prepack": "rm -rf lib && NODE_PATH=src tsc -b && oclif-dev manifest && oclif-dev readme",
     "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif-dev readme && git add README.md"
+    "preversion": "npm run test",
+    "version": "oclif-dev readme && git add README.md && npm publish",
+    "postversion": "git add . && git push && git push --tags"
   },
   "types": "lib/index.d.ts"
 }
